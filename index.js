@@ -13,7 +13,7 @@ var inquirer = require("inquirer")
 var API_KEY = '8d513994'
 var url = `http://www.omdbapi.com/?apikey=${API_KEY}&`
 
-function searchOmdb() {
+function searchOmdb(){
   inquirer.prompt ([{
     type: "input",
     message: "Search for a movie",
@@ -21,13 +21,14 @@ function searchOmdb() {
   }]).then(inquireResponse => {
     console.log(inquireResponse.OmdbSearch)
     let queryURL = `${url}t=${inquireResponse.OmdbSearch}`
-    // return fucntion for promise
+    // 
     axios.get(queryURL).then(res => {
-      console.log(res.request.data)
+      console.log(res)
     })
   })
 
 }
+
 
 function searchBands() {
   inquirer.prompt ([{
